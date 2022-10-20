@@ -10,4 +10,5 @@ provider "aws" {
 //----------
 resource "aws_s3_bucket" "remote_tf" {
   bucket = var.bucket
+  force_destroy = true
 }
