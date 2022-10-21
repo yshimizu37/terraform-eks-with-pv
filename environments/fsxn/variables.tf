@@ -7,6 +7,21 @@ variable "aws_region" {
   default = "ap-northeast-1"
 }
 
+//filesystemの容量
+variable "storage_capacity" {
+  default = 1024
+}
+
+//filesystemのスループット
+variable "throughput_capacity" {
+  default = 512
+}
+
+//デプロイタイプ("SINGLE_AZ_1" or "MULTI_AZ_1")
+variable "deployment_type" {
+  default = "MULTI_AZ_1"
+}
+
 //FSxNが利用する既存サブネットID
 variable "subnet_ids" {
   default = [
