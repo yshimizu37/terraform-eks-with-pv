@@ -275,6 +275,8 @@ $ terraform destroy
 ```
 
 ### Deleting your s3bucket
+You can keep remain s3 bucket to use again next deployment.
+
 1. Destroy your s3 bucket with terraform
 ```sh
 $ cd "$(git rev-parse --show-toplevel)"/environments/s3bucket
