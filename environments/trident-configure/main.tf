@@ -1,11 +1,4 @@
 //----------
-//Remote bucket
-//----------
-variable "bucket" {
-  default = "remote-tf-20221019"
-}
-
-//----------
 //Provider
 //----------
 provider "kubernetes" {
@@ -25,11 +18,11 @@ module "trident_configure" {
   source          = "../../modules/trident-configure/"
 
   trident_namespace = data.terraform_remote_state.trident.outputs.trident_namespace
-  fsxn_secret_name = "fsxn-secret"
+  fsxn_secret_name = var.fsxn_secret_name
   fsxn_admin_password = data.terraform_remote_state.fsxn.outputs.admin_password
-  fsxn_backend_config_name = "fsxn-nas-backend-config"
-  fsxn_backend_name = "fsxn-nas-backend"
+  fsxn_backend_config_name = var.fsxn_backend_config_name
+  fsxn_backend_name = var.fsxn_backend_name
   fsxn_management_dns_name = data.terraform_remote_state.fsxn.outputs.management_dns_name
   fsxn_svm_name = data.terraform_remote_state.fsxn.outputs.svm_name
-  fsxn_storage_class_name = "fsxn-nas-sc"
+  fsxn_storage_class_name = var.fsxn_storage_class_name
 }

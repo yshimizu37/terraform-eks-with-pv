@@ -1,11 +1,4 @@
 //----------
-//Remote bucket
-//----------
-variable "bucket" {
-  default = "remote-tf-20221019"
-}
-
-//----------
 //Provider
 //----------
 provider "helm" {
@@ -25,6 +18,7 @@ provider "helm" {
 //----------
 module "trident_install" {
   source      = "../../modules/trident-install/"
-  trident_namespace = "trident"
-  helm_chart_path = "../../assets/trident-operator-22.07.0.tgz"
+
+  trident_namespace = var.trident_namespace
+  helm_chart_path = var.helm_chart_path
 }
